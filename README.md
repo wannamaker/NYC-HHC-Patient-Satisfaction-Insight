@@ -4,6 +4,8 @@ This app presents some insights about the NYC Health + Hospitals Corporation pat
 
 ##API and Data Sample
 
+https://data.cityofnewyork.us/resource/hi3x-y76v.json
+
 ```json
 [
     {
@@ -57,15 +59,15 @@ This app presents some insights about the NYC Health + Hospitals Corporation pat
 ### MVP/PostMVP
 
 #### MVP 
-- Build layout
-- Find and use external api 
-- Render data on page 
-- Use CSS flex or grid on the layout 
+- Build layout (HTML and CSS)
+- Use the mentioned external API 
+- Render data on page using a drop down menu
+- Display results from one hospital in the menu above using CSS flex or grid on the page 
 
 #### PostMVP  
 - Add second API
-- Add Animation 
-- Make the page responsive
+- Add categories in a drop dow menu per hospital
+- Add Animation and Make the page responsive
 
 ## Project Schedule
 
@@ -75,10 +77,10 @@ Schedule I plan to work on this project
 |---|---| ---|
 |May 8| Project Prompt | Incomplete
 |May 9-10| Wireframes / Priority Matrix / Timeframes | Incomplete
-|May 11| Core Application Structure (HTML, CSS, etc.) | Incomplete
-|May 12| Pseudocode / actual code | Incomplete
-|May 13| Initial Clickable Model  | Incomplete
-|May 14| MVP | Incomplete
+|May 11| Complete the layout: HTML, CSS | Incomplete
+|May 12| JavaScript coding / Loadind list of hospitals from drom down menu | Incomplete
+|May 13| Display information on the page  | Incomplete
+|May 14| Complete MVP and clean the code | Incomplete
 |May 15| Present | Incomplete
 
 ## Priority Matrix
@@ -91,7 +93,9 @@ Here is how I plan to spend my time for this project
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Adding Form | H | 4hrs| hrs | hrs |
-| Working with API | H |6 hrs| hrs | hrs |
-| Total | H | 10hrs| hrs | hrs |
+| Building layout | H | 8hrs | hrs | hrs |
+| Loading API | H | 7hrs| hrs | hrs |
+| Drop down menu | H |6 hrs| hrs | hrs |
+| Display results | H | 6hrs | hrs | hrs |
+| Total | H | 27hrs| hrs | hrs |
 
