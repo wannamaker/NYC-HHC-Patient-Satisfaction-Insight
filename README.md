@@ -1,6 +1,6 @@
 #NYC-HHC-Patient-Satisfaction-Insight
 ##Description
-This app presents some insight about the BYC Health + Hospitals patient satisfaction scores based on a survey realize in 2009. It will present multiple  scores gathered from mulitiple hospitals , assembled into raw data from the  NYC Open Data API endpoints.
+This app presents some insights about the NYC Health + Hospitals Corporation patient satisfaction scores based on a survey realized on 2009. It will present multiple  scores gathered from mulitiple hospitals, assembled into raw data from the  NYC Open Data API endpoints.
 
 ##API and Data Sample
 
