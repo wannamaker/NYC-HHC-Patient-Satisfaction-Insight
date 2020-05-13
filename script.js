@@ -20,7 +20,7 @@ hospitalName.forEach((hospital) => {
   const option = document.createElement('option')
   option.value = `${hospital}`
   option.text = `${hospital}`
-  select.append(option)
+  select.append(option);
 })
 
 
@@ -41,71 +41,63 @@ const getData = async () => {
 
 }
 
-getData();
+//getData();
+
+function deletePrevious() {
+
+  let divEle = document.querySelector('.append-data');
+  while (divEle.lastChild) {
+    divEle.removeChild(divEle.lastChild)
+  }
+}
+
+
 
 function boardingData(arrObj) {
 
   const newDiv = document.createElement('div');
   for (let i = 0; i < arrObj.length; i++) {
-    let ele = arrObj[i]; console.log(ele);
+    let ele = arrObj[i];
     const newP = document.createElement('p');
     for (let k in ele) {
-      console.log(ele[k]);
-
       if (k !== 'hospital_name') {
         newP.innerHTML += `${ele[k]}  <br>`
       }
     }
     newDiv.appendChild(newP);
   }
-  document.querySelector('.per-hospital').appendChild(newDiv)
+  document.querySelector('.append-data').appendChild(newDiv)
 };
 
 
 function survey(arr, str) {
-  let hospitalObj = {};
-  let hospArrayObj = [];
+
   let hospArray = [];
   let hospitalSurvey = [];
   let hospital = str;
   for (let j = 0; j < 110; j++) {
     for (let k in arr[j]) {
-      let buffer;
+
       if ((k === 'hospital_name') && (arr[j].hospital_name === hospital)) {
         hospArray.push(arr[j]);
       }
     }
-  } //hospitalObj[hospital] = hospArray1;
-  console.log(hospArray);
+  }
 
-  //console.log(hospArray.length);
 
-  //return hospArray;
 
   boardingData(hospArray);
-
-
-
-
-
-
 };
 
 function displaySurvey(e) {
   e.preventDefault();
 
   const select = document.querySelector('#select-hospital');
-  const value = select.value
-  console.log(value);
-
+  const value = select.value;
+  //console.log(value);
+  deletePrevious();
   (async () => { survey(await getData(), value) })();
 };
-
-
-
-
-
-
 
 const form = document.querySelector('form')
 form.addEventListener('submit', displaySurvey)
