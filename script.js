@@ -43,22 +43,52 @@ const getData = async () => {
 
 getData();
 
+function boardingData(arrObj) {
+
+  const newDiv = document.createElement('div');
+  for (let i = 0; i < arrObj.length; i++) {
+    let ele = arrObj[i]; console.log(ele);
+    const newP = document.createElement('p');
+    for (let k in ele) {
+      console.log(ele[k]);
+
+      if (k !== 'hospital_name') {
+        newP.innerHTML += `${ele[k]}  <br>`
+      }
+    }
+    newDiv.appendChild(newP);
+  }
+  document.querySelector('.per-hospital').appendChild(newDiv)
+};
+
 
 function survey(arr, str) {
   let hospitalObj = {};
   let hospArrayObj = [];
-  let hospArray1 = [];
+  let hospArray = [];
   let hospitalSurvey = [];
   let hospital = str;
   for (let j = 0; j < 110; j++) {
     for (let k in arr[j]) {
       let buffer;
       if ((k === 'hospital_name') && (arr[j].hospital_name === hospital)) {
-        hospArray1.push(arr[j]);
+        hospArray.push(arr[j]);
       }
     }
-  } hospitalObj[hospital] = hospArray1;
-  return hospitalObj;
+  } //hospitalObj[hospital] = hospArray1;
+  console.log(hospArray);
+
+  //console.log(hospArray.length);
+
+  //return hospArray;
+
+  boardingData(hospArray);
+
+
+
+
+
+
 };
 
 function displaySurvey(e) {
@@ -68,10 +98,12 @@ function displaySurvey(e) {
   const value = select.value
   console.log(value);
 
-  (async () => { console.log(survey(await getData(), value)) })();
-
-
+  (async () => { survey(await getData(), value) })();
 };
+
+
+
+
 
 
 
