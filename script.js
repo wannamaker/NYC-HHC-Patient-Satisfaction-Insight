@@ -1,6 +1,5 @@
 
 
-
 let hospitalName = [
   "BELLEVUE HOSPITAL CENTER",
   "CONEY ISLAND HOSPITAL",
@@ -15,6 +14,16 @@ let hospitalName = [
   "WOODHULL MEDICAL AND MENTAL HEALTH CENTER"
 ]
 
+const select = document.querySelector('select')
+
+hospitalName.forEach((hospital) => {
+  const option = document.createElement('option')
+  option.value = `${hospital}`
+  option.text = `${hospital}`
+  select.append(option)
+})
+
+
 
 const getData = async () => {
 
@@ -25,11 +34,11 @@ const getData = async () => {
     const response = await axios.get(url);
 
     let dataArray = response.data;
-
+    return dataArray;
   } catch (error) {
     console.log(`${error}`);
   }
-  return dataArray;
+
 }
 
 getData();
@@ -45,9 +54,26 @@ function survey(arr, str) {
     for (let k in arr[j]) {
       let buffer;
       if ((k === 'hospital_name') && (arr[j].hospital_name === hospital)) {
-        hospArray1.push(dataArray[j]);
+        hospArray1.push(arr[j]);
       }
     }
   } hospitalObj[hospital] = hospArray1;
   return hospitalObj;
 };
+
+function displaySurvey(e) {
+  e.preventDefault();
+
+  const select = document.querySelector('#select-hospital');
+  const value = select.value
+  console.log(value);
+
+  (async () => { console.log(survey(await getData(), value)) })();
+
+
+};
+
+
+
+const form = document.querySelector('form')
+form.addEventListener('submit', displaySurvey)
