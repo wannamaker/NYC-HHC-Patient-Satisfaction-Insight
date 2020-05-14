@@ -41,7 +41,6 @@ const getData = async () => {
 
 }
 
-//getData();
 
 function deletePrevious() {
 
@@ -56,17 +55,53 @@ function deletePrevious() {
 function boardingData(arrObj) {
 
   const newDiv = document.createElement('div');
+
+  // creates a <table> element and a <tbody> element
+  let tbl = document.createElement("table");
+  let tblBody = document.createElement("tbody");
+
+  //creates first row
+  let arr = ['Question', 'Answer Description', 'Answer In Percentage'];
+  let row = document.createElement("tr");
+  for (let i = 0; i < 3; i++) {
+    // creating all cells
+    let cell = document.createElement("td");
+    let cellText = document.createTextNode(`${arr[i]}`);
+    cell.appendChild(cellText);
+    row.appendChild(cell);
+  }
+  tblBody.appendChild(row);
+
+
+
   for (let i = 0; i < arrObj.length; i++) {
     let ele = arrObj[i];
-    const newP = document.createElement('p');
+    // creates a table row
+    row = document.createElement("tr");
+
     for (let k in ele) {
+      let cell = document.createElement("td");
       if (k !== 'hospital_name') {
-        newP.innerHTML += `${ele[k]}  <br>`
+        let cellText = document.createTextNode(`${ele[k]}`);
+
+        cell.appendChild(cellText);
+        row.appendChild(cell);
+
       }
+      // add the row to the end of the table body
+      tblBody.appendChild(row);
     }
-    newDiv.appendChild(newP);
+
   }
+
+  // put the <tbody> in the <table>
+  tbl.appendChild(tblBody);
+  // appends <table> into <body>
+
+  newDiv.appendChild(tbl);
   document.querySelector('.append-data').appendChild(newDiv)
+  // sets the border attribute of tbl to 2;
+  tbl.setAttribute("border", "2");
 };
 
 
@@ -94,7 +129,7 @@ function displaySurvey(e) {
 
   const select = document.querySelector('#select-hospital');
   const value = select.value;
-  //console.log(value);
+
   deletePrevious();
   (async () => { survey(await getData(), value) })();
 };
