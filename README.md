@@ -1,8 +1,8 @@
-#NYC-HHC-Patient-Satisfaction-Insight
-##Description
+# NYC-HHC-Patient-Satisfaction-Insight
+## Description
 This app presents some insights about the NYC Health + Hospitals Corporation patient satisfaction scores based on a survey realized on 2009. It will present multiple  scores gathered from mulitiple hospitals, assembled into raw data from the  NYC Open Data API endpoints.
 
-##API and Data Sample
+## API and Data Sample
 
 https://data.cityofnewyork.us/resource/hi3x-y76v.json
 
@@ -76,11 +76,11 @@ Schedule I plan to work on this project
 |  Day | Deliverable | Status
 |---|---| ---|
 |May 8| Project Prompt | Incomplete
-|May 9-10| Wireframes / Priority Matrix / Timeframes | Incomplete
-|May 11| Complete the layout: HTML, CSS | Incomplete
-|May 12| JavaScript coding / Loadind list of hospitals from drom down menu | Incomplete
-|May 13| Display information on the page  | Incomplete
-|May 14| Complete MVP and clean the code | Incomplete
+|May 9-10| Wireframes / Priority Matrix / Timeframes | complete
+|May 11| Complete the layout: HTML, CSS | complete
+|May 12| JavaScript coding / Loadind list of hospitals from drom down menu | complete
+|May 13| Display information on the page  | complete
+|May 14| Complete MVP and clean the code | complete
 |May 15| Present | Incomplete
 
 ## Priority Matrix
@@ -93,9 +93,28 @@ Here is how I plan to spend my time for this project
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Building layout | H | 8hrs | hrs | hrs |
-| Loading API | H | 7hrs| hrs | hrs |
-| Drop down menu | H |6 hrs| hrs | hrs |
-| Display results | H | 6hrs | hrs | hrs |
-| Total | H | 27hrs| hrs | hrs |
+| Building layout | H | 8 hrs | 6 hrs | 6 hrs |
+| Loading API | H | 7 hrs| 1 hrs | 1 hrs |
+| Drop down menu | H |6 hrs| 6 hrs | 6 hrs |
+| Display results | H | 6hrs | 18 hrs | 18 hrs |
+| Total | H | 27 hrs| 31 hrs | 31 hrs |
 
+# Code Snippet
+```javascript
+function displaySurvey(e) {
+  e.preventDefault();
+
+  const select = document.querySelector('#select-hospital');
+  const value = select.value;
+
+  //removing previously displayed data 
+  deletePrevious();
+
+  //chain reaaction for final result
+  (async () => { survey(await getData(), value) })();
+};
+
+```
+
+# Change Log
+I originally wanted to create a second display based on the categories instead to the hospitals , but my squad leader advises me to take this part to the PMVP, I agreed. Unfortunately, as the time was passing, I opted to polish the design and to add some animation instead of doing that part. I didn’t have enough time to tweak my CSS and make the page responsive as well. 
