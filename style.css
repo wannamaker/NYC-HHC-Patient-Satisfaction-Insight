@@ -9,22 +9,19 @@ html, body {
   height: 100%;
 }
 
-
-
 body {
   background-color: white;
   font-family: 'Ubuntu', sans-serif;
   font-weight: 250;
   font-size: ;
 }
+
+header {
+  background: rgb(255, 138, 59);
+}
 .nav-container {
   margin: 0 auto;
   height: 60px;
-  text-align: center;
-}
-header {
-  background: rgb(255, 138, 59);
-  /*position: fixed;*/
 }
 header::after {
   content: '';
@@ -34,15 +31,7 @@ header::after {
 nav {
   float: right;
 }
-ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-li {
-  display: inline-block;
-  margin: 15px;
-}
+
 img {
   display: inline-block;
  padding-right: 20px;

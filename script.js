@@ -51,7 +51,7 @@ function deletePrevious() {
 }
 
 
-
+// Setting data on the table
 function boardingData(arrObj) {
 
   const newDiv = document.createElement('div');
@@ -104,13 +104,13 @@ function boardingData(arrObj) {
   tbl.setAttribute("border", "2");
 };
 
-
+//sorting the survey for an hospital passed in argument with the raw array received from async
 function survey(arr, str) {
 
   let hospArray = [];
   let hospitalSurvey = [];
   let hospital = str;
-  for (let j = 0; j < 110; j++) {
+  for (let j = 0; j < arr.length; j++) {
     for (let k in arr[j]) {
 
       if ((k === 'hospital_name') && (arr[j].hospital_name === hospital)) {
@@ -118,22 +118,25 @@ function survey(arr, str) {
       }
     }
   }
-
-
-
+  //setting the survey for this hospital inside the table     
   boardingData(hospArray);
 };
 
+// callback function linked to the submit button that will take the value submitted to look for all the survey related to this va;ue
 function displaySurvey(e) {
   e.preventDefault();
 
   const select = document.querySelector('#select-hospital');
   const value = select.value;
 
+  //removing previously displayed data 
   deletePrevious();
+
+  //chain reaaction for final result
   (async () => { survey(await getData(), value) })();
 };
 
+//animation of hospital images
 let bkgImg = document.querySelector('.img-container');
 function changeImages() {
   setInterval(function () {
@@ -161,6 +164,7 @@ function changeImages() {
   }, 13500);
 };
 
+//aside animation
 adText = document.querySelector('.p-aside')
 
 function adAnimation() {
@@ -173,7 +177,10 @@ function adAnimation() {
   }, 1000);
 }
 
+//calling the animation functions
 changeImages();
 adAnimation();
+
+//event listener on the submit button that triggers the callback function submitted for an hospital.
 const form = document.querySelector('form')
 form.addEventListener('submit', displaySurvey)
