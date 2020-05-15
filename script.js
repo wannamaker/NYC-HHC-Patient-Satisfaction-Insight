@@ -134,5 +134,46 @@ function displaySurvey(e) {
   (async () => { survey(await getData(), value) })();
 };
 
+let bkgImg = document.querySelector('.img-container');
+function changeImages() {
+  setInterval(function () {
+    bkgImg.style.backgroundImage = 'url(https://i.imgur.com/JZNwj2d.jpg)';  //Kings County
+  }, 5500);
+
+  setInterval(function () {
+    bkgImg.style.backgroundImage = 'url(https://i.imgur.com/AEC65zy.jpg)';  //Elmhurst
+  }, 5500);
+
+  setInterval(function () {
+    bkgImg.style.backgroundImage = 'url(https://i.imgur.com/L2hsaNM.jpg)';   //metropolitan
+  }, 7500);
+
+  setInterval(function () {
+    bkgImg.style.backgroundImage = 'url(https://i.imgur.com/1l9bNsM.jpg)';   //Bellevue
+  }, 9500);
+
+  setInterval(function () {
+    bkgImg.style.backgroundImage = 'url(https://i.imgur.com/lt70naT.jpg)';  //coney-Island
+  }, 11500);
+
+  setInterval(function () {
+    bkgImg.style.backgroundImage = 'url(https://i.imgur.com/ptHFM4f.png)';  //HHC-HQ
+  }, 13500);
+};
+
+adText = document.querySelector('.p-aside')
+
+function adAnimation() {
+  setInterval(function () {
+    adText.style.color = 'whitesmoke';
+  }, 500);
+
+  setInterval(function () {
+    adText.style.color = 'black';
+  }, 1000);
+}
+
+changeImages();
+adAnimation();
 const form = document.querySelector('form')
 form.addEventListener('submit', displaySurvey)
